@@ -18,9 +18,9 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
           onClick={onClose}
         />
 
-        <div className="relative bg-white rounded-xl shadow-xl max-w-md w-full p-6 transform transition-all">
+        <div className="relative bg-white rounded-xl shadow-xl max-w-md w-full p-4 sm:p-6 mx-4 transform transition-all">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900">{title}</h3>
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-gray-600 transition-colors"

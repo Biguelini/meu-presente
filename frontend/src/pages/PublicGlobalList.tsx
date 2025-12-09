@@ -127,7 +127,7 @@ export function PublicGlobalList() {
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-8">
+      <main className="max-w-3xl mx-auto px-4 py-6 sm:py-8">
         {listas.length > 1 && (
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -136,7 +136,7 @@ export function PublicGlobalList() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedListId('all')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   selectedListId === 'all'
                     ? 'bg-primary-600 text-white'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
@@ -150,7 +150,7 @@ export function PublicGlobalList() {
                   <button
                     key={lista.publicHashId}
                     onClick={() => setSelectedListId(lista.publicHashId)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                       selectedListId === lista.publicHashId
                         ? 'bg-primary-600 text-white'
                         : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
@@ -164,7 +164,7 @@ export function PublicGlobalList() {
           </div>
         )}
 
-        <p className="text-sm text-gray-500 mb-4">
+        <p className="text-xs sm:text-sm text-gray-500 mb-4">
           {filteredGifts.length} presente{filteredGifts.length !== 1 ? 's' : ''} disponíve{filteredGifts.length !== 1 ? 'is' : 'l'}
         </p>
 
@@ -181,12 +181,12 @@ export function PublicGlobalList() {
             {filteredGifts.map((gift) => (
               <div
                 key={gift._id}
-                className="bg-white rounded-xl shadow-sm p-4 border border-gray-100"
+                className="bg-white rounded-xl shadow-sm p-3 sm:p-4 border border-gray-100"
               >
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <h3 className="font-medium text-gray-900 truncate">{gift.nome}</h3>
+                      <h3 className="font-medium text-gray-900 truncate text-sm sm:text-base">{gift.nome}</h3>
                       {gift.link && (
                         <a
                           href={gift.link}
@@ -213,21 +213,21 @@ export function PublicGlobalList() {
                         </a>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 mt-0.5">
+                    <div className="flex flex-wrap items-center gap-2 mt-0.5">
                       {gift.listaNome && selectedListId === 'all' && (
                         <span className="text-xs text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">
                           {gift.listaNome}
                         </span>
                       )}
                       {formatPrice(gift.preco) && (
-                        <span className="text-sm text-gray-500">{formatPrice(gift.preco)}</span>
+                        <span className="text-xs sm:text-sm text-gray-500">{formatPrice(gift.preco)}</span>
                       )}
                     </div>
                   </div>
 
                   <button
                     onClick={() => setBuyGiftId(gift._id)}
-                    className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2 flex-shrink-0"
+                    className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto sm:flex-shrink-0"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -250,8 +250,8 @@ export function PublicGlobalList() {
           </div>
         )}
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-400">
+        <div className="mt-8 sm:mt-12 text-center">
+          <p className="text-xs sm:text-sm text-gray-400">
             Powered by{' '}
             <Link to="/" className="text-primary-600 hover:underline">
               Meu Presente

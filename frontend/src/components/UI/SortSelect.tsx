@@ -16,12 +16,12 @@ const sortOptions: { value: SortOption; label: string }[] = [
 
 export function SortSelect({ value, onChange }: SortSelectProps) {
   return (
-    <div className="flex items-center gap-2">
-      <label className="text-sm text-gray-600">Ordenar por:</label>
+    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+      <label className="text-xs sm:text-sm text-gray-600">Ordenar por:</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value as SortOption)}
-        className="input py-1.5 text-sm w-auto"
+        className="input py-1.5 text-xs sm:text-sm w-full sm:w-auto"
       >
         {sortOptions.map((option) => (
           <option key={option.value} value={option.value}>

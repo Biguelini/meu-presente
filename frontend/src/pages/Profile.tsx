@@ -75,11 +75,11 @@ export function Profile() {
   return (
     <Layout>
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Meu Perfil</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Meu Perfil</h1>
 
         {/* Formulário de Perfil */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Informações Pessoais</h2>
+        <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 mb-4 sm:mb-6">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">Informações Pessoais</h2>
           
           <form onSubmit={handleUpdateProfile} className="space-y-4">
             <div>
@@ -132,8 +132,8 @@ export function Profile() {
         </div>
 
         {/* Formulário de Senha */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Alterar Senha</h2>
+        <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">Alterar Senha</h2>
           
           <form onSubmit={handleChangePassword} className="space-y-4">
             <div>

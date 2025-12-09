@@ -19,19 +19,19 @@ export function ListCard({ list, onDelete }: ListCardProps) {
   };
 
   return (
-    <div className="card p-5 hover:shadow-md transition-shadow">
+    <div className="card p-4 sm:p-5 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <Link
             to={`/list/${list._id}`}
-            className="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors block truncate"
+            className="text-base sm:text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors block truncate"
           >
             {list.nome}
           </Link>
           {list.descricao && (
-            <p className="text-sm text-gray-500 mt-1 line-clamp-2">{list.descricao}</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-2">{list.descricao}</p>
           )}
-          <div className="flex items-center gap-4 mt-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 sm:mt-3">
             <span className="text-xs text-gray-400">
               #{list.publicHashId}
             </span>
@@ -41,10 +41,10 @@ export function ListCard({ list, onDelete }: ListCardProps) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 ml-4">
+        <div className="flex items-center gap-1 sm:gap-2 ml-2 sm:ml-4">
           <button
             onClick={copyLink}
-            className="p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
             title="Copiar link público"
           >
             <svg
@@ -64,7 +64,7 @@ export function ListCard({ list, onDelete }: ListCardProps) {
           </button>
           <Link
             to={`/list/${list._id}`}
-            className="p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
             title="Ver lista"
           >
             <svg
@@ -84,7 +84,7 @@ export function ListCard({ list, onDelete }: ListCardProps) {
           </Link>
           <button
             onClick={() => onDelete(list._id)}
-            className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
             title="Excluir lista"
           >
             <svg

@@ -58,12 +58,12 @@ export function Dashboard() {
 
   return (
     <Layout>
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Minhas Listas</h1>
-          <p className="text-gray-500 mt-1">Gerencie suas listas de presentes</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Minhas Listas</h1>
+          <p className="text-sm sm:text-base text-gray-500 mt-1">Gerencie suas listas de presentes</p>
         </div>
-        <button onClick={() => setIsCreateModalOpen(true)} className="btn-primary">
+        <button onClick={() => setIsCreateModalOpen(true)} className="btn-primary w-full sm:w-auto">
           + Nova Lista
         </button>
       </div>

@@ -5,6 +5,13 @@
 body {
   @apply bg-gray-50 text-gray-900 min-h-screen;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Melhor experiência de scroll no mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 @layer components {
@@ -13,23 +20,24 @@ body {
   }
   
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 active:scale-95;
   }
   
   .btn-secondary {
-    @apply btn bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-400;
+    @apply btn bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-400 active:scale-95;
   }
   
   .btn-danger {
-    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 active:scale-95;
   }
   
   .btn-success {
-    @apply btn bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+    @apply btn bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 active:scale-95;
   }
   
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-base;
+    /* text-base evita zoom no iOS ao focar inputs */
   }
   
   .input-error {

@@ -155,10 +155,10 @@ export function ListDetail() {
           Voltar
         </Link>
 
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-gray-900">{list.nome}</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{list.nome}</h1>
               <button
                 onClick={() => setIsEditListOpen(true)}
                 className="p-1.5 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded transition-colors"
@@ -181,14 +181,14 @@ export function ListDetail() {
               </button>
             </div>
             {list.descricao && (
-              <p className="text-gray-500 mt-1">{list.descricao}</p>
+              <p className="text-sm sm:text-base text-gray-500 mt-1">{list.descricao}</p>
             )}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
             <button 
               onClick={copyPublicLink} 
-              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm sm:text-base"
             >
               {copied ? (
                 <>
@@ -206,18 +206,18 @@ export function ListDetail() {
                 </>
               )}
             </button>
-            <button onClick={() => setIsCreateGiftOpen(true)} className="btn-primary">
+            <button onClick={() => setIsCreateGiftOpen(true)} className="btn-primary text-sm sm:text-base justify-center">
               + Adicionar Presente
             </button>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between mb-4">
-        <p className="text-sm text-gray-500">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 mb-4">
+        <p className="text-xs sm:text-sm text-gray-500">
           {gifts.length} presente{gifts.length !== 1 ? 's' : ''}
           {!isDraggable && (
-            <span className="ml-2 text-yellow-600">
+            <span className="block sm:inline sm:ml-2 text-yellow-600">
               (Arraste para reordenar apenas na ordenação por prioridade)
             </span>
           )}

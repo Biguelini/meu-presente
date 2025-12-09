@@ -124,8 +124,8 @@ export function PublicList() {
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-8">
-        <p className="text-sm text-gray-500 mb-4">
+      <main className="max-w-3xl mx-auto px-4 py-6 sm:py-8">
+        <p className="text-xs sm:text-sm text-gray-500 mb-4">
           {gifts.length} presente{gifts.length !== 1 ? 's' : ''} disponíve{gifts.length !== 1 ? 'is' : 'l'}
         </p>
 
@@ -140,12 +140,12 @@ export function PublicList() {
             {gifts.map((gift) => (
               <div
                 key={gift._id}
-                className="bg-white rounded-xl shadow-sm p-4 border border-gray-100"
+                className="bg-white rounded-xl shadow-sm p-3 sm:p-4 border border-gray-100"
               >
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <h3 className="font-medium text-gray-900 truncate">{gift.nome}</h3>
+                      <h3 className="font-medium text-gray-900 truncate text-sm sm:text-base">{gift.nome}</h3>
                       {gift.link && (
                         <a
                           href={gift.link}
@@ -173,13 +173,13 @@ export function PublicList() {
                       )}
                     </div>
                     {formatPrice(gift.preco) && (
-                      <p className="text-sm text-gray-500 mt-0.5">{formatPrice(gift.preco)}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 mt-0.5">{formatPrice(gift.preco)}</p>
                     )}
                   </div>
 
                   <button
                     onClick={() => setBuyGiftId(gift._id)}
-                    className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2 flex-shrink-0"
+                    className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto sm:flex-shrink-0"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -202,8 +202,8 @@ export function PublicList() {
           </div>
         )}
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-400">
+        <div className="mt-8 sm:mt-12 text-center">
+          <p className="text-xs sm:text-sm text-gray-400">
             Powered by{' '}
             <Link to="/" className="text-primary-600 hover:underline">
               Meu Presente

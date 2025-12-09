@@ -34,22 +34,22 @@ export function ConfirmDialog({
       <div className="flex min-h-full items-center justify-center p-4">
         <div className="fixed inset-0 bg-black/50 transition-opacity" onClick={onClose} />
 
-        <div className="relative bg-white rounded-xl shadow-xl max-w-md w-full p-6 transform transition-all">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-          <p className="text-gray-600 mb-6">{message}</p>
+        <div className="relative bg-white rounded-xl shadow-xl max-w-md w-full p-4 sm:p-6 mx-4 transform transition-all">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+          <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{message}</p>
 
-          <div className="flex justify-end gap-3">
+          <div className="flex flex-col-reverse sm:flex-row justify-end gap-2 sm:gap-3">
             <button
               onClick={onClose}
               disabled={isLoading}
-              className="btn-secondary"
+              className="btn-secondary w-full sm:w-auto"
             >
               {cancelText}
             </button>
             <button
               onClick={onConfirm}
               disabled={isLoading}
-              className={`btn text-white ${variantClasses[variant]}`}
+              className={`btn text-white w-full sm:w-auto ${variantClasses[variant]}`}
             >
               {isLoading ? 'Aguarde...' : confirmText}
             </button>

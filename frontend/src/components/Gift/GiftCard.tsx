@@ -37,14 +37,16 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
     <div
       ref={setNodeRef}
       style={style}
-      className={`card p-4 ${isDragging ? 'shadow-lg ring-2 ring-primary-300' : ''}`}
+      className={`card p-3 sm:p-4 ${isDragging ? 'shadow-lg ring-2 ring-primary-300 z-50' : ''}`}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         {isDraggable && (
-          <button
+          <div
             {...attributes}
             {...listeners}
-            className="p-1 text-gray-400 hover:text-gray-600 cursor-grab active:cursor-grabbing"
+            className="p-2 -m-1 text-gray-400 hover:text-gray-600 cursor-grab active:cursor-grabbing touch-manipulation select-none"
+            role="button"
+            aria-label="Arrastar para reordenar"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,12 +66,12 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
               <circle cx="15" cy="12" r="1"></circle>
               <circle cx="15" cy="19" r="1"></circle>
             </svg>
-          </button>
+          </div>
         )}
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <h3 className="font-medium text-gray-900 truncate">{gift.nome}</h3>
+            <h3 className="font-medium text-gray-900 truncate text-sm sm:text-base">{gift.nome}</h3>
             {gift.link && (
               <a
                 href={gift.link}
@@ -97,14 +99,14 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
             )}
           </div>
           {formatPrice(gift.preco) && (
-            <p className="text-sm text-gray-500 mt-0.5">{formatPrice(gift.preco)}</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">{formatPrice(gift.preco)}</p>
           )}
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5 sm:gap-1">
           <button
             onClick={() => onEdit(gift)}
-            className="p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
             title="Editar presente"
           >
             <svg
@@ -124,7 +126,7 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
           </button>
           <button
             onClick={() => onDelete(gift._id)}
-            className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
             title="Excluir presente"
           >
             <svg
