@@ -43,7 +43,6 @@ function PublicRoute({ children }: { children: ReactNode }) {
 function AppRoutes() {
   return (
     <Routes>
-      {/* Rotas públicas de autenticação */}
       <Route
         path="/login"
         element={
@@ -61,7 +60,6 @@ function AppRoutes() {
         }
       />
 
-      {/* Rotas privadas */}
       <Route
         path="/dashboard"
         element={
@@ -87,13 +85,10 @@ function AppRoutes() {
         }
       />
 
-      {/* Rota pública da lista (sem autenticação) */}
       <Route path="/l/:slug" element={<PublicList />} />
 
-      {/* Rota pública da lista global (sem autenticação) */}
       <Route path="/g/:hashId" element={<PublicGlobalList />} />
 
-      {/* Redirect */}
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>

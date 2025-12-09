@@ -93,7 +93,6 @@ export function PublicList() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 py-6">
           <div className="flex items-center gap-3">
@@ -125,14 +124,11 @@ export function PublicList() {
         </div>
       </header>
 
-      {/* Content */}
       <main className="max-w-3xl mx-auto px-4 py-8">
-        {/* Info */}
         <p className="text-sm text-gray-500 mb-4">
           {gifts.length} presente{gifts.length !== 1 ? 's' : ''} disponíve{gifts.length !== 1 ? 'is' : 'l'}
         </p>
 
-        {/* Gifts */}
         {gifts.length === 0 ? (
           <EmptyState
             icon="gift"
@@ -206,7 +202,6 @@ export function PublicList() {
           </div>
         )}
 
-        {/* Footer */}
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-400">
             Powered by{' '}
@@ -217,7 +212,6 @@ export function PublicList() {
         </div>
       </main>
 
-      {/* Confirm Dialog */}
       <ConfirmDialog
         isOpen={!!buyGiftId}
         onClose={() => setBuyGiftId(null)}

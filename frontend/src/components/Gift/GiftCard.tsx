@@ -40,7 +40,6 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
       className={`card p-4 ${isDragging ? 'shadow-lg ring-2 ring-primary-300' : ''}`}
     >
       <div className="flex items-center gap-3">
-        {/* Drag Handle */}
         {isDraggable && (
           <button
             {...attributes}
@@ -68,7 +67,6 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
           </button>
         )}
 
-        {/* Gift Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <h3 className="font-medium text-gray-900 truncate">{gift.nome}</h3>
@@ -103,7 +101,6 @@ export function GiftCard({ gift, onEdit, onDelete, isDraggable }: GiftCardProps)
           )}
         </div>
 
-        {/* Actions */}
         <div className="flex items-center gap-1">
           <button
             onClick={() => onEdit(gift)}

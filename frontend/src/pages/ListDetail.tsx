@@ -137,7 +137,6 @@ export function ListDetail() {
 
   return (
     <Layout>
-      {/* Header */}
       <div className="mb-6">
         <Link to="/dashboard" className="text-sm text-gray-500 hover:text-primary-600 flex items-center gap-1 mb-4">
           <svg
@@ -214,7 +213,6 @@ export function ListDetail() {
         </div>
       </div>
 
-      {/* Sort & Info */}
       <div className="flex items-center justify-between mb-4">
         <p className="text-sm text-gray-500">
           {gifts.length} presente{gifts.length !== 1 ? 's' : ''}
@@ -227,7 +225,6 @@ export function ListDetail() {
         <SortSelect value={sort} onChange={handleSortChange} />
       </div>
 
-      {/* Gifts */}
       {gifts.length === 0 ? (
         <EmptyState
           icon="gift"
@@ -248,7 +245,6 @@ export function ListDetail() {
         />
       )}
 
-      {/* Modals */}
       <CreateGiftModal
         isOpen={isCreateGiftOpen}
         onClose={() => setIsCreateGiftOpen(false)}

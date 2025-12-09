@@ -96,7 +96,6 @@ export function PublicGlobalList() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-3xl mx-auto px-4 py-6">
           <div className="flex items-center gap-3">
@@ -128,9 +127,7 @@ export function PublicGlobalList() {
         </div>
       </header>
 
-      {/* Content */}
       <main className="max-w-3xl mx-auto px-4 py-8">
-        {/* Filter by list */}
         {listas.length > 1 && (
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -167,12 +164,10 @@ export function PublicGlobalList() {
           </div>
         )}
 
-        {/* Info */}
         <p className="text-sm text-gray-500 mb-4">
           {filteredGifts.length} presente{filteredGifts.length !== 1 ? 's' : ''} disponíve{filteredGifts.length !== 1 ? 'is' : 'l'}
         </p>
 
-        {/* Gifts */}
         {filteredGifts.length === 0 ? (
           <EmptyState
             icon="gift"
@@ -255,7 +250,6 @@ export function PublicGlobalList() {
           </div>
         )}
 
-        {/* Footer */}
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-400">
             Powered by{' '}
@@ -266,7 +260,6 @@ export function PublicGlobalList() {
         </div>
       </main>
 
-      {/* Confirm Dialog */}
       <ConfirmDialog
         isOpen={!!buyGiftId}
         onClose={() => setBuyGiftId(null)}

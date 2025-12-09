@@ -104,7 +104,6 @@ export function GlobalList() {
 
   return (
     <Layout>
-      {/* Header */}
       <div className="mb-6">
         <div className="flex items-center justify-between">
           <div>
@@ -144,7 +143,6 @@ export function GlobalList() {
         </div>
       )}
 
-      {/* Sort & Info */}
       <div className="flex items-center justify-between mb-4">
         <p className="text-sm text-gray-500">
           {gifts.length} presente{gifts.length !== 1 ? 's' : ''} disponíve{gifts.length !== 1 ? 'is' : 'l'}
@@ -157,7 +155,6 @@ export function GlobalList() {
         <SortSelect value={sort} onChange={handleSortChange} />
       </div>
 
-      {/* Gifts */}
       {gifts.length === 0 ? (
         <EmptyState
           icon="gift"
@@ -174,7 +171,6 @@ export function GlobalList() {
         />
       )}
 
-      {/* Modals */}
       <EditGiftModal
         isOpen={!!editGift}
         onClose={() => setEditGift(null)}
