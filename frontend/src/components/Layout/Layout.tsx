@@ -56,7 +56,13 @@ export function Layout({ children }: LayoutProps) {
                 Lista Global
               </Link>
               <div className="flex items-center gap-3 ml-4 pl-4 border-l border-gray-200">
-                <span className="text-sm text-gray-500">Olá, {user?.nome.split(' ')[0]}</span>
+                <Link
+                  to="/profile"
+                  className="text-sm text-gray-500 hover:text-primary-600 transition-colors"
+                  title="Meu Perfil"
+                >
+                  {user?.nome.split(' ')[0]}
+                </Link>
                 <button
                   onClick={handleLogout}
                   className="text-sm text-gray-500 hover:text-red-600 transition-colors"

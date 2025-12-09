@@ -173,6 +173,54 @@ class AuthService {
     }
     return user;
   }
+
+  async updateProfile(userId: string, data: { nome?: string; email?: string }): Promise<IUserDocument> {
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new NotFoundError('Usuário não encontrado');
+    }
+
+    if (data.nome) {
+      if (data.nome.trim().length < 2) {
+        throw new BadRequestError('Nome deve ter pelo menos 2 caracteres');
+      }
+      user.nome = data.nome.trim();
+    }
+
+    if (data.email) {
+      const newEmail = data.email.toLowerCase().trim();
+      if (newEmail !== user.email) {
+        const existingUser = await User.findOne({ email: newEmail });
+        if (existingUser) {
+          throw new ConflictError('Este e-mail já está em uso');
+        }
+        user.email = newEmail;
+      }
+    }
+
+    await user.save();
+    return user;
+  }
+
+  async changePassword(userId: string, senhaAtual: string, novaSenha: string): Promise<void> {
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new NotFoundError('Usuário não encontrado');
+    }
+
+    const isValidPassword = await user.compararSenha(senhaAtual);
+    if (!isValidPassword) {
+      throw new UnauthorizedError('Senha atual incorreta');
+    }
+
+    if (novaSenha.length < 6) {
+      throw new BadRequestError('Nova senha deve ter pelo menos 6 caracteres');
+    }
+
+    user.senha = novaSenha;
+    user.refreshTokens = [];
+    await user.save();
+  }
 }
 
 export const authService = new AuthService();

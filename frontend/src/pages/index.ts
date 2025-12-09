@@ -5,3 +5,4 @@ export { ListDetail } from './ListDetail';
 export { GlobalList } from './GlobalList';
 export { PublicList } from './PublicList';
 export { PublicGlobalList } from './PublicGlobalList';
+export { Profile } from './Profile';

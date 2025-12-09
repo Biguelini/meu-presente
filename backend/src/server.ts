@@ -7,9 +7,23 @@ import { errorHandler } from './middlewares/index.js';
 
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://meu-presente-site.vercel.app',
+  config.frontendUrl,
+].filter(Boolean);
 
 app.use(cors({
-  origin: config.frontendUrl,
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Bloqueado pelo CORS'));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());

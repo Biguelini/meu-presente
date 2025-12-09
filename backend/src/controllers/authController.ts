@@ -67,4 +67,37 @@ export const authController = {
       data: { user },
     });
   }),
+
+  updateProfile: asyncHandler(async (req: Request, res: Response) => {
+    const userId = req.userId!;
+    const { nome, email } = req.body;
+    
+    const user = await authService.updateProfile(userId, { nome, email });
+
+    res.json({
+      success: true,
+      message: 'Perfil atualizado com sucesso',
+      data: { user },
+    });
+  }),
+
+  changePassword: asyncHandler(async (req: Request, res: Response) => {
+    const userId = req.userId!;
+    const { senhaAtual, novaSenha } = req.body;
+    
+    if (!senhaAtual || !novaSenha) {
+      res.status(400).json({
+        success: false,
+        message: 'Senha atual e nova senha são obrigatórias',
+      });
+      return;
+    }
+
+    await authService.changePassword(userId, senhaAtual, novaSenha);
+
+    res.json({
+      success: true,
+      message: 'Senha alterada com sucesso',
+    });
+  }),
 };

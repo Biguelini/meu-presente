@@ -54,4 +54,19 @@ export const authService = {
     }
     throw new Error(response.data.message || 'Erro ao buscar usuário');
   },
+
+  async updateProfile(data: { nome?: string; email?: string }): Promise<User> {
+    const response = await api.put<ApiResponse<{ user: User }>>('/auth/profile', data);
+    if (response.data.success && response.data.data) {
+      return response.data.data.user;
+    }
+    throw new Error(response.data.message || 'Erro ao atualizar perfil');
+  },
+
+  async changePassword(senhaAtual: string, novaSenha: string): Promise<void> {
+    const response = await api.put<ApiResponse<null>>('/auth/password', { senhaAtual, novaSenha });
+    if (!response.data.success) {
+      throw new Error(response.data.message || 'Erro ao alterar senha');
+    }
+  },
 };

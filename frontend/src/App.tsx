@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts';
 import { Loading } from './components';
-import { Login, Register, Dashboard, ListDetail, GlobalList, PublicList, PublicGlobalList } from './pages';
+import { Login, Register, Dashboard, ListDetail, GlobalList, PublicList, PublicGlobalList, Profile } from './pages';
 import { ReactNode } from 'react';
 
 function PrivateRoute({ children }: { children: ReactNode }) {
@@ -81,6 +81,14 @@ function AppRoutes() {
         element={
           <PrivateRoute>
             <GlobalList />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute>
         }
       />
